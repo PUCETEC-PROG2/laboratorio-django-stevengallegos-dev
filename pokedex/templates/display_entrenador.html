@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<p>Has elegido al Entrenador: <strong>{{ entrenador|capfirst }}</strong></p>
+
+<h3>Detalles del Entrenador</h3>
+<ul>
+  <li>Nombre: {{ entrenador.nombre }}</li>
+  <li>Apellido: {{ entrenador.apellido }}</li>
+  <li>Nivel: {{ entrenador.nivel }}</li>
+  <li>Fecha de nacimiento: {{ entrenador.fecha_nacimiento }}</li>
+</ul>
+{% endblock content %}
