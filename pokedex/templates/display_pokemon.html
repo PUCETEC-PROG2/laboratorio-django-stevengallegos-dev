@@ -10,4 +10,11 @@
   <li>Altura: {{ pokemon.height}} cm.</li>
   <li>Entrenador: {{ pokemon.entrenador}}</li>
 </ul>
+
+<img 
+    src="{{ pokemon.picture.url }}"
+    class="card-img-top mt-3"
+    alt="{{ pokemon.name }}"
+    style="max-width: 250px;"
+/>
 {% endblock content %}
