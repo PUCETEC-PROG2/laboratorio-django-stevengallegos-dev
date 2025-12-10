@@ -7,6 +7,7 @@ class Entrenador(models.Model):
     apellido = models.CharField(max_length=30, null=False)
     nivel = models.IntegerField(default=1)
     fecha_nacimiento = models.DateField(null=True, blank=True)
+    foto = models.ImageField(upload_to='entrenadores', null=True, blank=True)
     
     
 
