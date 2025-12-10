@@ -9,7 +9,7 @@ class PokemonSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Pokemon
-        fields = '_all_'
+        fields = '__all__'
         
     def validate_picture(self, value):
         if value:
@@ -23,5 +23,4 @@ class PokemonSerializer(serializers.ModelSerializer):
             except Exception:
                 raise serializers.ValidationError("La imagen no se encuentra con base64 válida.")
         return value
-        
-#['id', 'name', 'tipo', 'weight',]
+    
