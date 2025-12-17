@@ -33,15 +33,22 @@ class EntrenadorSerializer(serializers.ModelSerializer):
         model = Entrenador
         fields = '__all__'
 
-    def validate_foto(self, value):
-        if value:
-            try:
+def validate_foto(self, value):
+    if value:
+        try:
+            if 'base64,' in value:
                 format, imgstr = value.split(';base64,')
                 ext = format.split('/')[-1]
-                return ContentFile(
-                    base64.b64decode(imgstr),
-                    name=f'entrenador.{ext}'
-                )
-            except Exception:
-                raise serializers.ValidationError("La imagen no se encuentra con base64 válida.")
-        return value
+            else:
+                imgstr = value
+                ext = 'jpg'
+
+            return ContentFile(
+                base64.b64decode(imgstr),
+                name=f'entrenador.{ext}'
+            )
+        except Exception:
+            raise serializers.ValidationError(
+                "La imagen no se encuentra con base64 válida."
+            )
+    return value
